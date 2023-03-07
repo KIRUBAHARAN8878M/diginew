@@ -1,24 +1,21 @@
-import logo from './logo.svg';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle'
 import './App.css';
+
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import CreateQuiz from './components/CreateQuiz';
+import QuizList from './components/QuizList';
+import EditQuiz from './components/EditQuiz';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+    <Routes>
+      <Route path='/' element={<CreateQuiz />} />
+      <Route path='/display' element={<QuizList   />} />
+      <Route path='/edit-quiz' element={<EditQuiz  />} />
+    </Routes>
+    </BrowserRouter>
   );
 }
 
